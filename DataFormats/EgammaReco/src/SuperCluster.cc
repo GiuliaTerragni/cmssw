@@ -10,7 +10,11 @@ SuperCluster::SuperCluster(double energy, const math::XYZPoint& position)
       phiWidth_(0),
       etaWidth_(0),
       preshowerEnergy1_(0),
-      preshowerEnergy2_(0) {}
+      preshowerEnergy2_(0),
+      ecalTime_(-99.),
+      ecalTimeError_(-99.),
+      ecalTimeNoOOTCorr_(-99.),
+      ecalTimeNoOOTCorrError_(-99.) {}
 
 SuperCluster::SuperCluster(double energy,
                            const math::XYZPoint& position,
@@ -85,3 +89,4 @@ void SuperCluster::computeRawEnergy() {
     rawEnergy_ += (*bcItr)->energy();
   }
 }
+

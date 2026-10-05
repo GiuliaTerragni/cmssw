@@ -29,7 +29,11 @@ namespace reco {
           phiWidth_(0),
           etaWidth_(0),
           preshowerEnergy1_(0),
-          preshowerEnergy2_(0) {}
+          preshowerEnergy2_(0),
+          ecalTime_(-99.),
+          ecalTimeError_(-99.),
+          ecalTimeNoOOTCorr_(-99.),
+          ecalTimeNoOOTCorrError_(-99.) {}
 
     /// constructor defined by CaloCluster - will have to use setSeed and add() separately
     SuperCluster(double energy, const Point& position);
@@ -173,6 +177,15 @@ namespace reco {
       return iphioriy;
     }
 
+    void setEcalTime(float x) { ecalTime_ = x; }
+    void setEcalTimeError(float x) { ecalTimeError_ = x; }
+    void setEcalTimeNoOOTCorr(float x) { ecalTimeNoOOTCorr_ = x; }
+    void setEcalTimeNoOOTCorrError(float x) { ecalTimeNoOOTCorrError_ = x; }
+    double ecalTime() const { return ecalTime_; }
+    double ecalTimeError() const { return ecalTimeError_; }
+    double ecalTimeNoOOTCorr() const { return ecalTimeNoOOTCorr_; }
+    double ecalTimeNoOOTCorrError() const { return ecalTimeNoOOTCorrError_; }
+    
   private:
     void computeRawEnergy();
 
@@ -197,6 +210,11 @@ namespace reco {
 
     double preshowerEnergy1_;
     double preshowerEnergy2_;
+    
+    double ecalTime_;
+    double ecalTimeError_;
+    double ecalTimeNoOOTCorr_;
+    double ecalTimeNoOOTCorrError_;
   };
 
 }  // namespace reco
