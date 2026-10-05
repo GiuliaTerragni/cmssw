@@ -8,7 +8,11 @@ Photon::Photon(const LorentzVector& p4, const Point& caloPos, const PhotonCoreRe
       caloPosition_(caloPos),
       photonCore_(core),
       pixelSeed_(false),
-      haloTaggerMVAVal_(99) {}
+      haloTaggerMVAVal_(99),
+      ecalTime_(-99.),
+      ecalTimeError_(-99.),
+      ecalTimeNoOOTCorr_(-99.),
+      ecalTimeNoOOTCorrError_(-99.) {}
 
 Photon::Photon(const Photon& rhs)
     : RecoCandidate(rhs),
@@ -25,7 +29,11 @@ Photon::Photon(const Photon& rhs)
       mipVariableBlock_(rhs.mipVariableBlock_),
       pfIsolation_(rhs.pfIsolation_),
       pfID_(rhs.pfID_),
-      haloTaggerMVAVal_(rhs.haloTaggerMVAVal_) {}
+      haloTaggerMVAVal_(rhs.haloTaggerMVAVal_),
+      ecalTime_(-99.),
+      ecalTimeError_(-99.),
+      ecalTimeNoOOTCorr_(-99.),
+      ecalTimeNoOOTCorrError_(-99.) {}
 
 Photon::~Photon() {}
 

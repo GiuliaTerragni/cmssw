@@ -590,13 +590,18 @@ namespace reco {
 
     ///set the haloTaggerMVAVal here
     void setHaloTaggerMVAVal(float x) { haloTaggerMVAVal_ = x; }
-
+    
+    //ecalTime info
     float ecalTime() const { return ecalTime_; }
     void setEcalTime(float x) { ecalTime_ = x; }
-
+    float ecalTimeError() const { return ecalTimeError_; }
+    void setEcalTimeError(float x) { ecalTimeError_ = x; }
+    
     float ecalTimeNoOOTCorr() const { return ecalTimeNoOOTCorr_; }
     void setEcalTimeNoOOTCorr(float x) { ecalTimeNoOOTCorr_ = x; }
-
+    float ecalTimeNoOOTCorrError() const { return ecalTimeNoOOTCorrError_; }
+    void setEcalTimeNoOOTCorrError(float x) { ecalTimeNoOOTCorrError_ = x; }
+    
 
   private:
     /// check overlap with another candidate
@@ -619,9 +624,10 @@ namespace reco {
     PflowIsolationVariables pfIsolation_;
     PflowIDVariables pfID_;
     float haloTaggerMVAVal_;
-
     float ecalTime_;
+    float ecalTimeError_;
     float ecalTimeNoOOTCorr_;
+    float ecalTimeNoOOTCorrError_;
   };
 
 }  // namespace reco

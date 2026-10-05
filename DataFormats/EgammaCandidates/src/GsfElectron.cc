@@ -35,7 +35,11 @@ GsfElectron::GsfElectron(int charge,
       //closestCtfTrack_(ctfInfo),
       fiducialFlags_(ff),
       showerShape_(ss),
-      conversionRejection_(crv) {
+      conversionRejection_(crv),
+      ecalTime_(-99.),
+      ecalTimeError_(-99.),
+      ecalTimeNoOOTCorr_(-99.),
+      ecalTimeNoOOTCorrError_(-99.) {
   init();
   setCharge(charge);
   setVertex(math::XYZPoint(te.positionAtVtx.x(), te.positionAtVtx.y(), te.positionAtVtx.z()));
@@ -64,7 +68,11 @@ GsfElectron::GsfElectron(int charge,
       showerShape_(ss),
       full5x5_showerShape_(full5x5_ss),
       saturationInfo_(si),
-      conversionRejection_(crv) {
+      conversionRejection_(crv),
+      ecalTime_(-99.),
+      ecalTimeError_(-99.),
+      ecalTimeNoOOTCorr_(-99.),
+      ecalTimeNoOOTCorrError_(-99.) {
   init();
   setCharge(charge);
   setVertex(math::XYZPoint(te.positionAtVtx.x(), te.positionAtVtx.y(), te.positionAtVtx.z()));
@@ -97,7 +105,11 @@ GsfElectron::GsfElectron(const GsfElectron& electron, const GsfElectronCoreRef& 
       classVariables_(electron.classVariables_),
       class_(electron.class_),
       corrections_(electron.corrections_),
-      pixelMatchVariables_(electron.pixelMatchVariables_) {
+      pixelMatchVariables_(electron.pixelMatchVariables_), 
+      ecalTime_(-99.),
+      ecalTimeError_(-99.),
+      ecalTimeNoOOTCorr_(-99.),
+      ecalTimeNoOOTCorrError_(-99.) {
   //assert(electron.core()->ctfTrack()==core->ctfTrack()) ;
   //assert(electron.core()->ctfGsfOverlap()==core->ctfGsfOverlap()) ;
 }
@@ -133,7 +145,11 @@ GsfElectron::GsfElectron(const GsfElectron& electron,
       classVariables_(electron.classVariables_),
       class_(electron.class_),
       corrections_(electron.corrections_),
-      pixelMatchVariables_(electron.pixelMatchVariables_) {
+      pixelMatchVariables_(electron.pixelMatchVariables_), 
+      ecalTime_(-99.),
+      ecalTimeError_(-99.),
+      ecalTimeNoOOTCorr_(-99.),
+      ecalTimeNoOOTCorrError_(-99.) {
   trackClusterMatching_.electronCluster = electronCluster;
   //closestCtfTrack_.ctfTrack = closestCtfTrack ;
   conversionRejection_.partner = conversionPartner;

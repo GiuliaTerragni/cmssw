@@ -941,17 +941,25 @@ namespace reco {
 
   private:
     PixelMatchVariables pixelMatchVariables_;
-
+  
+  // ecalTime info
   public:
-    float ecalTime() const { return ecalTime_; }
+    // accessors
     void setEcalTime(float x) { ecalTime_ = x; }
-
-    float ecalTimeNoOOTCorr() const { return ecalTimeNoOOTCorr_; }
+    void setEcalTimeError(float x) { ecalTimeError_ = x; }
     void setEcalTimeNoOOTCorr(float x) { ecalTimeNoOOTCorr_ = x; }
-
+    void setEcalTimeNoOOTCorrError(float x) { ecalTimeNoOOTCorrError_ = x; }
+    float ecalTime() const { return ecalTime_; }
+    float ecalTimeError() const { return ecalTimeError_; }
+    float ecalTimeNoOOTCorr() const { return ecalTimeNoOOTCorr_; }
+    float ecalTimeNoOOTCorrError() const { return ecalTimeNoOOTCorrError_; }
+    
   private:
+    // attributes
     float ecalTime_;
+    float ecalTimeError_;
     float ecalTimeNoOOTCorr_;
+    float ecalTimeNoOOTCorrError_;
   };
 
 }  // namespace reco
